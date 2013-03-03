@@ -107,7 +107,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     #'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -127,6 +127,11 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_FOLDER,'templates'),
 )
 
+#SESSION_COOKIE_DOMAIN = <your domain for cookies>
+SESSION_COOKIE_AGE = 7200    # as of now its kept as 2 hours  which is default expiry of Facebook access_token
+
+HOST = 'http://lit-woodland-6028.herokuapp.com/'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,6 +142,19 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
+
+FACEBOOK_API_KEY=109464542535160
+FACEBOOK_APP_ID=109464542535160
+FACEBOOK_SECRET_KEY='24674af719f86cb77ed5e170b4d128f9'
+
+#FB_AUTH_REDIRECT = "<specify absolute url where client will be redirect after succesfull login, default redirection is  to '/'>"
+
+AUTHENTICATION_BACKENDS =  (
+    'django.contrib.auth.backends.ModelBackend',
+    'fb.auth.FbAuth'
+)
+
+FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","email"]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

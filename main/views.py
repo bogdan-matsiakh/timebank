@@ -9,6 +9,9 @@ def index(request):
     c.update(csrf(request))
     return render_to_response('index.html', c)
 
+def channel(request):
+    return render_to_response('channel.html')
+
 def fb(request):
     print 'Facebook fb request'
     print request

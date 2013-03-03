@@ -1,11 +1,44 @@
 <html>
 	<head>
 		<title>Blog</title>
+
+		<script type="text/javascript">
+
+		</script>
+		</head>
+		<body>
+			<div id="fb-root"></div>
+			
+			<script>
+				window.fbAsyncInit = function() {
+					// init the FB JS SDK
+					FB.init({
+						appId      : '109464542535160', // App ID from the App Dashboard
+						channelUrl : 'http://lit-woodland-6028.herokuapp.com/channel', // Channel File for x-domain communication
+						status     : true, // check the login status upon init?
+						cookie     : true, // set sessions cookies to allow your server to access the session?
+						xfbml      : true  // parse XFBML tags on this page?
+					});
+			
+					// Additional initialization code such as adding Event Listeners goes here
+			
+				};
 		
-    </head>
-	<body>
-		{% csrf_token %}
-		<h1> Hello world </h1>
-		<h2>test</h2>
-	</body>
+				// Load the SDK's source Asynchronously
+				// Note that the debug version is being actively developed and might
+				// contain some type checks that are overly strict.
+				// Please report such bugs using the bugs tool.
+				(function(d, debug){
+					var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+					if (d.getElementById(id)) {return;}
+					js = d.createElement('script'); js.id = id; js.async = true;
+					js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+					ref.parentNode.insertBefore(js, ref);
+				}(document, /*debug*/ false));
+			</script>
+			<h1> Hello world </h1>
+			<h2>test</h2>
+	
+
+		</body>
 </html>
