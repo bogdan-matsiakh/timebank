@@ -8,16 +8,21 @@ facebook = (function () {
         _getFriends = function () {
             console.log('Getting list of friends ');
             FB.api('/me/friends', function(response) {
-                console.log(response);
-                return response
+                _friendsGetted(response);
             });
         },
         _getFriend = function (id) {
             console.log('Getting friend ');
             FB.api('/me/friends/' + id, function(response) {
-                console.log(response);
-                return response
+                _friendGetted(response);
             });
+        },
+        _friendsGetted =function (response) {
+            _getFriend(response.data[0].id);
+        },
+        _friendGetted =function (response) {
+            say('friend')
+            say(response)
         }
     
     return {
@@ -25,7 +30,6 @@ facebook = (function () {
             FB.login(function(response) {
                 if (response.authResponse) {
                     say('login connected');
-                    testAPI();
                 } else {
                     say('login canceled');
                 }
@@ -36,10 +40,7 @@ facebook = (function () {
             _getMe();
         },
         getFriends : function () {
-            var response = _getFriends(),
-                friend = facebook.getFriend(response.data[0].id);
-            say(friend);
-            
+            _getFriends(),
         },
         getFriend : function (id) {
             return _getFriend(id)
