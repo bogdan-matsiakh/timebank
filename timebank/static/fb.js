@@ -3,8 +3,18 @@ facebook = (function () {
         console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', function(response) {
                 console.log('Good to see you, ' + response.name + '.');
+                _meGetted(response)
             });
     },
+        _meGetted = function (response) {
+            _getPhoto()
+        },
+        _getPhoto = function () {
+            say('getting photo;')
+            FB.api('/me?fields=picture', function(response) {
+                say(response);
+            });
+        },
         _getFriends = function () {
             console.log('Getting list of friends ');
             FB.api('/me/friends', function(response) {
