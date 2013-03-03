@@ -25,6 +25,7 @@
                     	console.log(response)
                         if (response.status === 'connected') {
                             console.log('connected');
+                            testAPI();
                         } else if (response.status === 'not_authorized') {
                             console.log('not_authorized')
                         } else {
@@ -40,9 +41,17 @@
 				    FB.login(function(response) {
 				        if (response.authResponse) {
 				            say('login connected');
+				            testAPI();
 				        } else {
 				            say('login canceled');
 				        }
+				    });
+				}
+				
+				function testAPI() {
+				    console.log('Welcome!  Fetching your information.... ');
+				    FB.api('/me', function(response) {
+				        console.log('Good to see you, ' + response.name + '.');
 				    });
 				}
 		
