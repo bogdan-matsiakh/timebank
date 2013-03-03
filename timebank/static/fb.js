@@ -40,10 +40,10 @@ facebook = (function () {
             _getMe();
         },
         getFriends : function () {
-            _getFriends(),
+            _getFriends();
         },
         getFriend : function (id) {
-            return _getFriend(id)
+            return _getFriend(id);
         }
     }
 })();
