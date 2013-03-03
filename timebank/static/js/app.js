@@ -1,5 +1,5 @@
 require(
-    ['facebook', 'tb'],
+    ['app/fb', 'app/main'],
     function( tb ){
         
     }
