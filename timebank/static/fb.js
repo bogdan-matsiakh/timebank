@@ -1,5 +1,24 @@
 facebook = (function () {
-    
+    var _getMe = function () {
+        console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
+            });
+    },
+        _getFriends = function () {
+            console.log('Getting list of friends ');
+            FB.api('/me/friends', function(response) {
+                console.log(response);
+                return response
+            });
+        },
+        _getFriend = function (id) {
+            console.log('Getting friend ');
+            FB.api('/me/friends/' + id, function(response) {
+                console.log(response);
+                return response
+            });
+        }
     
     return {
         login : function () {
@@ -14,16 +33,16 @@ facebook = (function () {
         },
         
         getMe : function () {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-                console.log('Good to see you, ' + response.name + '.');
-            });
+            _getMe();
         },
         getFriends : function () {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me/friends', function(response) {
-                console.log(response);
-            });
+            var response = _getFriends(),
+                friend = facebook.getFriend(response.data[0].id);
+            say(friend);
+            
+        },
+        getFriend : function (id) {
+            return _getFriend(id)
         }
     }
 })();
