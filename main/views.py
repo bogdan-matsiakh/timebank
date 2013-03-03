@@ -8,3 +8,11 @@ def index(request):
     c = {}
     c.update(csrf(request))
     return render_to_response('index.html', c)
+
+def fb(request):
+    print 'Facebook fb request'
+    print request
+
+def fb_auth(request):
+    print 'Facebook AUTH request'
+    print request
