@@ -8,8 +8,9 @@ from main import views
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'main.views.index'),
-    url(r'^fb$', 'main.views.fb'),
-    url(r'^fb/fb-auth$', 'main.views.fb'),
+    #url(r'^fb$', 'main.views.fb'),
+    #url(r'^fb/fb-auth$', 'main.views.fb'),
+    url(r'^fb/', include('fb.urls')),
     # url(r'^timebank/', include('timebank.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
