@@ -22,7 +22,6 @@ facebook = (function () {
         getFriends : function () {
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me/friends', function(response) {
-                say(friends);
                 console.log(response);
             });
         }
@@ -41,7 +40,6 @@ window.fbAsyncInit = function() {
     });
 
     FB.getLoginStatus(function(response) {
-        console.log(response)
         if (response.status === 'connected') {
             console.log('connected');
             facebook.getMe();
