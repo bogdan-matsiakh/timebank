@@ -22,8 +22,8 @@
 				    FB.getLoginStatus(function(response) {
 				        if (response.status === 'connected') {
 				            console.log('connected');
-				            facebook.getMe();
-				            facebook.getFriends();
+				            tb.facebook.getMe();
+				            tb.facebook.getFriends();
 				        } else if (response.status === 'not_authorized') {
 				            console.log('not_authorized')
 				        } else {
