@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^channel$', 'main.views.channel'),
     #url(r'^fb$', 'main.views.fb'),
     #url(r'^fb/fb-auth$', 'main.views.fb'),
-    url(r'^fb/', include('fb.urls')),
+  #  url(r'^fb/', include('fb.urls')),
     # url(r'^timebank/', include('timebank.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
