@@ -1,6 +1,6 @@
 say('in');
 require(
-    ['app/fb', 'app/main'],
+    ['script/fb', 'script/main'],
     function( tb ){
         say('in app');
         FB.getLoginStatus(function(response) {
