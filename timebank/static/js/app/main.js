@@ -3,9 +3,7 @@ define(
     [],
     function( ){
         tb = (function () {
-    
-            _controls
-            
+            var _controls;
         })();
         return tb;
     }
