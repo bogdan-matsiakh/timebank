@@ -1,5 +1,5 @@
 define(
-    'main',
+    'app/main',
     [],
     function( ){
         tb = (function () {

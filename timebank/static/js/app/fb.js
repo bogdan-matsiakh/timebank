@@ -1,6 +1,6 @@
 define(
-    'facebook',
-    ['main'],
+    'app/facebook',
+    ['app/main'],
     function( tb ){
         tb.facebook = (function () {
             var _getMe = function () {
