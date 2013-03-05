@@ -1,55 +1,31 @@
 <html>
 	<head>
 		<title>Blog</title>
+		
+		<link rel="stylesheet" href="../static/css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
+		
+		<script type="text/javascript" src="../static/js/lib/jquery.js"></script>
+		<script type="text/javascript" src="../static/js/lib/jquery-ui.js"></script>
+		
+		<script type="text/javascript" src="../static/js/app/timebank.js"></script>
+		<script type="text/javascript" src="../static/js/app/fb.js"></script>
+		<script type="text/javascript" src="../static/js/app/start.js"></script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		
+		<script type="text/javascript" src="../static/js/app.js"></script>
+		
+		<header id="header">
+			<img class="avatar" src="" alt="" />
+			<span class="name"></span>			
+		</header>
+		
+					
+		<div id="content"></div>
+		
+		<footer id="footer"></footer>
 
-		<script data-main="js/app.js" src="js/require.js"></script>
-		</head>
-		<body>
-			<div id="fb-root"></div>
-			
-			<script type="text/javascript">
-				window.fbAsyncInit = function() {
-				    // init the FB JS SDK
-				    FB.init({
-				        appId : '109464542535160', // App ID from the App Dashboard
-				        channelUrl : 'http://lit-woodland-6028.herokuapp.com/channel', // Channel File for x-domain communication
-				        status : true, // check the login status upon init?
-				        cookie : true, // set sessions cookies to allow your server to access the session?
-				        xfbml : true // parse XFBML tags on this page?
-				
-				    });
-				
-				    
-				    // Additional initialization code such as adding Event Listeners goes here
-				
-				};
-				
-				
-				(function(d, debug) {
-				        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-				        if (d.getElementById(id)) {
-				            return;
-				        }
-				        js = d.createElement('script');
-				        js.id = id;
-				        js.async = true;
-				        js.src = "//connect.facebook.net/en_US/all" + ( debug ? "/debug" : "") + ".js";
-				        ref.parentNode.insertBefore(js, ref);
-				    }(document, /*debug*/false));
-				
-				function say(attr) {
-				    console.log(attr);
-				}
-			</script>
-			<div id="header">
-				<img class="avatar" src="" alt="" />
-				<span class="name"></span>
-			</div>
-			<div id="content"></div>
-			
-			<h1> Hello world </h1>
-			<h2>test</h2>
-	
 
-		</body>
+	</body>
 </html>
