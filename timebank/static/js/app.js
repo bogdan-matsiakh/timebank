@@ -8,7 +8,21 @@ window.fbAsyncInit = function() {
         xfbml : true // parse XFBML tags on this page?
 
     });
-
+    
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            console.log('connected');
+            tb.status = true;
+            say(response)
+            tb.response = response;
+        } else if (response.status === 'not_authorized') {
+            console.log('not_authorized');
+            FB.login();
+        } else {
+            console.log('not_logged_in');
+            FB.login();
+        }
+    });
     // Additional initialization code such as adding Event Listeners goes here
 
 }; 
@@ -25,29 +39,20 @@ window.fbAsyncInit = function() {
     ref.parentNode.insertBefore(js, ref);
 }(document, /*debug*/false));
 
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-        console.log('connected');
-        tb.status = true;
-        say(response)
-        tb.response = response;
-    } else if (response.status === 'not_authorized') {
-        console.log('not_authorized')
-    } else {
-        console.log('not_logged_in');
-    }
-});
+
 
 $(document).ready(function() {
-    
-    if (tb.status) {
-        say('logined')
-        tb.init();
-        tb.facebook.getMe();
-        tb.facebook.getFriends();        
-    }
-    else {
-        say('not logined yet')
+    function init() {
+        if (tb.status) {
+            say('logined')
+            tb.init();
+            tb.facebook.getMe();
+            tb.facebook.getFriends();        
+        }
+        else {
+            say('not logined yet');
+            setTimeout(init, 500);
+        }
     }
 });
 
