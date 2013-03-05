@@ -11,34 +11,44 @@ window.fbAsyncInit = function() {
 
     // Additional initialization code such as adding Event Listeners goes here
 
-}; ( function(d, debug) {
-        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+}; 
+( function(d, debug) {
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement('script');
-        js.id = id;
-        js.async = true;
-        js.src = "//connect.facebook.net/en_US/all" + ( debug ? "/debug" : "") + ".js";
-        ref.parentNode.insertBefore(js, ref);
-    }(document, /*debug*/false));
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement('script');
+    js.id = id;
+    js.async = true;
+    js.src = "//connect.facebook.net/en_US/all" + ( debug ? "/debug" : "") + ".js";
+    ref.parentNode.insertBefore(js, ref);
+}(document, /*debug*/false));
+
+FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        console.log('connected');
+        tb.status = true;
+        say(response)
+        tb.response = response;
+    } else if (response.status === 'not_authorized') {
+        console.log('not_authorized')
+    } else {
+        console.log('not_logged_in');
+    }
+});
 
 $(document).ready(function() {
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            console.log('connected');
-            tb.status = true;
-        } else if (response.status === 'not_authorized') {
-            console.log('not_authorized')
-        } else {
-            console.log('not_logged_in');
-        }
-    });
     
-    tb.init();
-    tb.facebook.getMe();
-    tb.facebook.getFriends();
+    if (tb.status) {
+        say('logined')
+        tb.init();
+        tb.facebook.getMe();
+        tb.facebook.getFriends();        
+    }
+    else {
+        say('not logined yet')
+    }
 });
 
 function say(attr) {
