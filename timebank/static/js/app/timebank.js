@@ -1,7 +1,7 @@
 tb = (function () {
     var _header,
         _content,
-        _footer;
+        _footer,
         _headerControls,
         _contentControls,
         _footerControls;
