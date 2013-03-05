@@ -7,12 +7,13 @@ tb.facebook = (function() {
             _meGetted(response)
         });
     }, _meGetted = function(response) {
+        tb.get().headerControls.name.innerText = response.name;
         _getPhoto()
     }, _getPhoto = function() {
         say('getting photo;')
         FB.api('/me?fields=picture', function(response) {
             say(response);
-            tb.get().headerControls.avatar.attr('src', 'http://static.sl.lumosity.com/resources/landing_page_templates/42/assets/images/img_head.png');
+            tb.get().headerControls.avatar.attr('src', response.picture.data.url);
         });
     }, _getFriends = function() {
         console.log('Getting list of friends ');
