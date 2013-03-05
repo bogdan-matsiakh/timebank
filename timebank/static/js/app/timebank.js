@@ -13,8 +13,8 @@ tb = (function () {
             _content = $("#content");
             _footer = $("#footer");
             _headerControls = {
-                avatar : header.find('.avatar'),
-                name : header.find('.name')
+                avatar : $(header).find('.avatar'),
+                name : $(header).find('.name')
             };
             _contentControls = {
                 
