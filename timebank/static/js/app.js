@@ -54,6 +54,7 @@ $(document).ready(function() {
             setTimeout(init, 500);
         }
     }
+    init();
 });
 
 function say(attr) {
