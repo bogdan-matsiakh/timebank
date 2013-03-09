@@ -8,7 +8,7 @@ tb.facebook = (function() {
         });
     }, _meGetted = function(response) {
         tb.get().headerControls.name.innerText = response.name;
-        _getPhoto()
+        _getPhoto();
     }, _getPhoto = function() {
         say('getting photo;')
         FB.api('/me?fields=picture', function(response) {
