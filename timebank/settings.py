@@ -161,9 +161,9 @@ FACEBOOK_SECRET_KEY='24674af719f86cb77ed5e170b4d128f9'
 
 #FB_AUTH_REDIRECT = "<specify absolute url where client will be redirect after succesfull login, default redirection is  to '/'>"
 
-AUTHENTICATION_BACKENDS =  (
+AUTHENTICATION_BACKENDS = (
+    'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
-    'fb.auth.FbAuth'
 )
 
 FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","email"]
@@ -173,6 +173,8 @@ FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","em
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

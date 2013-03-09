@@ -2,6 +2,10 @@
 	<head>
 		<title>Blog</title>
 		
+		<link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+		
+		{% include 'django_facebook/_facebook_js.html' %}
+		
 		<link rel="stylesheet" href="../static/css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
 		
 		<script type="text/javascript" src="../static/js/lib/jquery.js"></script>
@@ -15,6 +19,11 @@
 		<div id="fb-root"></div>
 		
 		<script type="text/javascript" src="../static/js/app.js"></script>
+		
+		<form action="{% url facebook_connect %}?facebook_login=1" method="post">
+			<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Register, login or connect with facebook</a>
+			<input type="hidden" value="{{ request.path }}" name="next" />
+		</form>
 		
 		<header id="header">
 			<img class="avatar" src="" alt="" />
