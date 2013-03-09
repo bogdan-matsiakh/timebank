@@ -157,7 +157,7 @@ INSTALLED_APPS = (
 
 FACEBOOK_API_KEY=109464542535160
 FACEBOOK_APP_ID=109464542535160
-FACEBOOK_APP_SECRET='24674af719f86cb77ed5e170b4d128f9'
+FACEBOOK_SECRET_KEY='24674af719f86cb77ed5e170b4d128f9'
 
 #FB_AUTH_REDIRECT = "<specify absolute url where client will be redirect after succesfull login, default redirection is  to '/'>"
 
