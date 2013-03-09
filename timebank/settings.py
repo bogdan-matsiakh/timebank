@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'fb',
+    'django_facebook',
 )
 
 FACEBOOK_API_KEY=109464542535160
@@ -166,7 +166,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","email"]
+#FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","email"]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
