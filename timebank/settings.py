@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 # Parse database configuration from $DATABASE_URL
 # for heroku server
 
-
+'''
 DATABASES = {
     'default':  dj_database_url.config()
 }
@@ -36,7 +36,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
-'''
+#'''
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -107,7 +107,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django_facebook.context_processors.facebook',
+   # 'django_facebook.context_processors.facebook',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -154,7 +154,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'django_facebook',
+    'main'
+    #'django_facebook',
 )
 
 FACEBOOK_API_KEY=109464542535160
@@ -162,12 +163,12 @@ FACEBOOK_APP_ID=109464542535160
 FACEBOOK_APP_SECRET='24674af719f86cb77ed5e170b4d128f9'
 
 #FB_AUTH_REDIRECT = "<specify absolute url where client will be redirect after succesfull login, default redirection is  to '/'>"
-
+'''
 AUTHENTICATION_BACKENDS = (
     'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-
+'''
 #FB_PERM = ["publish_stream","offline_access","user_location","user_birthday","email"]
 
 # A sample logging configuration. The only tangible logging
@@ -175,7 +176,7 @@ AUTHENTICATION_BACKENDS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+#AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
 LOGGING = {
     'version': 1,
