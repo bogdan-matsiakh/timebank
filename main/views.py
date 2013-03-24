@@ -19,3 +19,8 @@ def fb(request):
 def fb_auth(request):
     print 'Facebook AUTH request'
     print request
+
+def index_db(request):
+    c = {}
+    c.update(csrf(request))
+    return render_to_response('index_db.html', c)

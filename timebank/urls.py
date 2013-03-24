@@ -7,7 +7,10 @@ from main import views
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'main.views.index'),
+    
+    url(r'^$', 'main.views.index_db'),
+    #url(r'^$', 'main.views.index'),
+    
     url(r'^channel$', 'main.views.channel'),
     #url(r'^fb$', 'main.views.fb'),
     #url(r'^fb/fb-auth$', 'main.views.fb'),
