@@ -9,7 +9,8 @@ urlpatterns = patterns('',
     # Examples:
     
     url(r'^$', 'main.views.index_db'),
-    url(r'^login$', 'main.views.auth'),
+    url(r'^login$', 'main.views.auth_login'),
+    url(r'^logout$', 'main.views.auth_logout'),
     #url(r'^$', 'main.views.index'),
     
     url(r'^channel$', 'main.views.channel'),

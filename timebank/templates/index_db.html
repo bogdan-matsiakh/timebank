@@ -8,7 +8,14 @@
 		<script type="text/javascript" src="../static/js/lib/jquery-ui.js"></script>
 	</head>
 	<body>
-		<p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+		{% if user.is_authenticated %}
+		    <p>Welcome, {{ user.username }}. </p>
+		    <a href="/logout">logout</a>
+		    
+		{% else %}
+		    <p>Welcome, new user. Please log in.</p>
+		{% endif %}
+		
 		<header id="header">
 			<img class="avatar" src="" alt="" />
 			<span class="name"></span>			
